@@ -3,11 +3,13 @@ pipeline {
         // set a timeout of 60 minutes for this pipeline
         timeout(time: 60, unit: 'MINUTES')
     }
-    agent {
+    /*agent {
       node {
         label 'nodejs'
       }
-    }
+    }*/
+	agent any
+	  tools {nodejs "nodejs"}
 
     environment {
         //TODO: Edit these vars as per your env
