@@ -65,7 +65,7 @@ pipeline {
 				  --build-env npm_config_registry=${NEXUS_SERVER} \
 				  -l apptype=nodejs
 				  
-				  oc -n ${DEV_PROJECT} svc/${APP_NAME}
+				  oc -n ${DEV_PROJECT} expose svc/${APP_NAME}
 				'''
             }
         }
@@ -132,7 +132,7 @@ pipeline {
 					-i workgroup:stage \
 					-n {STAGE_PROJECT}
 					
-					oc -n ${STAGE_PROJECT} svc/${APP_NAME}
+					oc -n ${STAGE_PROJECT} expose svc/${APP_NAME}
 				'''
             }
         }
