@@ -130,7 +130,7 @@ pipeline {
 					oc new-app --as-deployment-config \
 					--name workgroup \
 					-i workgroup:stage \
-					-n {STAGE_PROJECT}
+					-n ${STAGE_PROJECT}
 					
 					oc -n ${STAGE_PROJECT} expose svc/${APP_NAME}
 				'''
