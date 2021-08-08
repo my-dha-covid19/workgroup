@@ -43,13 +43,15 @@ pipeline {
                 sh 'npm test'
             }
         }
+		//didn't work correctly
 		/*stage ('SonarQube Analysis') {
 			steps {
 				  withSonarQubeEnv('sonar') {
 					 sh 'npm install sonar-scanner'
 				  }
 				}
-		}*/
+		}
+		*/
 
         stage('Run Linting Tools') {
             steps {
