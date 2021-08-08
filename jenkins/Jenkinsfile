@@ -43,13 +43,13 @@ pipeline {
                 sh 'npm test'
             }
         }
-		stage ('SonarQube Analysis') {
+		/*stage ('SonarQube Analysis') {
 			steps {
 				  withSonarQubeEnv('sonar') {
 					 sh 'npm install sonar-scanner'
 				  }
 				}
-		}
+		}*/
 
         stage('Run Linting Tools') {
             steps {
