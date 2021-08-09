@@ -44,14 +44,23 @@ pipeline {
             }
         }
 		//didn't work correctly
-		/*stage ('SonarQube Analysis') {
+		stage ('SonarQube Analysis') {
+		    when{
+			    expression{
+				return env.GIT_BRANCH =~ 'dev'
+				}
+			}
 			steps {
-				  withSonarQubeEnv('sonar') {
-					 sh 'npm install sonar-scanner'
+			    script{
+				    def scannerHome = tool 'SonarScanner';
+					withSonarQubeEnv('sonar') {
+				     sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectkey=${APP_NAME}"
+					 //sh 'npm install sonar-scanner'
 				  }
 				}
+				}
 		}
-		*/
+		
 
         stage('Run Linting Tools') {
             steps {
