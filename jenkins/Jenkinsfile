@@ -45,26 +45,26 @@ pipeline {
         }
 		//didn't work correctly
 		stage ('SonarQube Analysis') {
-		    /*when{
+		    when{
 			    expression{
 				return env.GIT_BRANCH =~ 'dev'
 				}
-			}*/
+			}
 			steps {
 			    script{
 				    def scannerHome = tool 'sonar';
 					withSonarQubeEnv('sonar') {
-				     sh "${scannerHome}/bin/sonar -Dsonar.projectkey=${APP_NAME}"
+				     sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectkey=${APP_NAME}"
 				  }
 				}
 				}
 		}
 		stage ('Quality Gate'){
-		   /*when{
+		    when{
 			    expression{
 				return env.GIT_BRANCH =~ 'dev'
 				}
-			}*/
+			}
 		   steps{
 		     script{
 			 sleep(60)
