@@ -45,11 +45,11 @@ pipeline {
         }
 		//didn't work correctly
 		stage ('SonarQube Analysis') {
-		    when{
+		    /*when{
 			    expression{
 				return env.GIT_BRANCH =~ 'dev'
 				}
-			}
+			}*/
 			steps {
 			    script{
 				    def scannerHome = tool 'SonarScanner';
