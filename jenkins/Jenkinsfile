@@ -52,10 +52,9 @@ pipeline {
 			}*/
 			steps {
 			    script{
-				    def scannerHome = tool 'SonarScanner';
+				    def scannerHome = tool 'sonar';
 					withSonarQubeEnv('sonar') {
 				     sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectkey=${APP_NAME}"
-					 //sh 'npm install sonar-scanner'
 				  }
 				}
 				}
