@@ -44,7 +44,7 @@ pipeline {
             }
         }
 		//didn't work correctly
-		/*stage ('SonarQube Analysis') {
+		stage ('SonarQube Analysis') {
 		    when{
 			    expression{
 				return env.GIT_BRANCH =~ 'dev'
@@ -77,7 +77,7 @@ pipeline {
 			 
 			 }
 		   }
-		}*/
+		}
 		
 
         stage('Run Linting Tools') {
